@@ -1,17 +1,22 @@
-import { Component, OnInit, DoCheck, AfterContentInit, AfterViewInit, AfterViewChecked, AfterContentChecked } from '@angular/core';
+import { Component, OnInit, DoCheck, AfterContentInit, AfterViewInit, AfterViewChecked, AfterContentChecked, OnDestroy } from '@angular/core';
 
 @Component({
   selector: 'app-root',
   template: `
-  <app-title title="Olá mundo!"></app-title>
-  {{ valor }}
-  <button (click)="adicionar()">Adicionar</button>&nbsp;
-  <button (click)="subtrair()">Subtrair</button>
-  <router-outlet></router-outlet>`
+    <app-title *ngIf="destruir" title="Olá mundo!"></app-title>
+    <label>Valor: </label>
+    <input type="text" value="{{ valor }}">&nbsp;
+    <button (click)="adicionar()">Adicionar</button>&nbsp;
+    <button (click)="subtrair()">Subtrair</button><br><br>
+    <button (click)="destruirComponente()">Destruir Componente</button>&nbsp;
+    <router-outlet></router-outlet>
+  `
 })
-export class AppComponent implements OnInit, DoCheck, AfterContentInit, AfterViewInit, AfterViewChecked, AfterContentChecked {
+export class AppComponent implements OnInit, DoCheck, AfterContentInit, AfterViewInit, AfterViewChecked, AfterContentChecked, OnDestroy {
 
   public valor: number = 0;
+
+  public destruir: boolean = true;
 
   constructor() { }
 
@@ -25,6 +30,16 @@ export class AppComponent implements OnInit, DoCheck, AfterContentInit, AfterVie
   }
 
 
+  destruirComponente(): void {
+    this.destruir = false;
+  }
+
+
+  ngOnDestroy(): void {
+    console.log('ngOnDestroy');
+  }
+
+  
   ngDoCheck(): void {
     console.log('ngDoCheck');
   }
