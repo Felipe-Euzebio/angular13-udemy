@@ -7,10 +7,19 @@
 <p>2 x 2 = {{ 2 * 2 }}</p>
 
 <hr>
-
 <h2>Property Binding</h2>
 
 <button [disabled]="checkedDisabled">Botão</button>
 
-<img [src]="imgSrc" alt="logo">
+<img [src]="imgSrc" alt="logo" width="200px">
 
+<hr>
+<h2>Event Binding</h2>
+
+<button (click)="alertaInfo()">Botão Alerta</button>&nbsp;
+
+<button (click)="eventInfo($event)">Botão Evento</button>
+<br><br>
+<div (mousemove)="mouseMoveTest($event)" style="background: red; width: 300px; height: 300px;"></div>
+
+<p>X: {{ position.x }} &nbsp; Y: {{ position.y }}</p>
