@@ -12,6 +12,9 @@ export class DataBindingComponent implements OnInit {
 
   constructor() { }
 
+  public checkedDisabled: boolean = true;
+  public imgSrc: string = "https://www.google.com/images/branding/googlelogo/1x/googlelogo_color_272x92dp.png";
+
   ngOnInit(): void {
   }
 
