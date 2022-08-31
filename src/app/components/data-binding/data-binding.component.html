@@ -23,3 +23,9 @@
 <div (mousemove)="mouseMoveTest($event)" style="background: red; width: 300px; height: 300px;"></div>
 
 <p>X: {{ position.x }} &nbsp; Y: {{ position.y }}</p>
+
+<hr>
+<h2>Two-way Binding</h2>
+
+<input type="text" [(ngModel)]="nome" name="nome">
+Seu nome é: {{ nome }}
